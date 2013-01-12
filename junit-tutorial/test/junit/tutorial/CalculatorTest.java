@@ -15,11 +15,17 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testDevideCanGetResultUsingIntValues() {
+	public void testDivideCanGetResultUsingIntValues() {
 		Calculator calculator = new Calculator();
 		float expected = 1.5f;
 		float actual = calculator.divide(3, 2);
 		assertThat(actual, is(expected));
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testDivideThrowExceptionWhenDividedByZero() {
+		Calculator calculator = new Calculator();
+		calculator.divide(5, 0);
 	}
 	
 }
