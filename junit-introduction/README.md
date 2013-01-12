@@ -1,4 +1,4 @@
-junit-introduction
+junit-tutorial
 ==================
 
-『JUnit実践入門』の学習用
+『Part 1 JUnit』のチュートリアルプロジェクト
