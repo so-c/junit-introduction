@@ -12,14 +12,14 @@ public class StringUtilsTest {
 		String actual = StringUtils.toSnakeCase("aaa");
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void testToSnakeCase_return_hello_world_when_input_HelloWorld() {
 		String expected = "hello_world";
 		String actual = StringUtils.toSnakeCase("HelloWorld");
 		assertThat(actual, is(expected));
 	}
-	
+
 	@Test
 	public void testToSnakeCase_return_practice_junit_when_input_PracticeJunit() {
 		String expected = "practice_junit";

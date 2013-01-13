@@ -4,7 +4,7 @@ public class StringUtils {
 	private StringUtils() {
 		super();
 	}
-	
+
 	public static String toSnakeCase(String string) {
 		if (string == null) {
 			throw new NullPointerException("string == null");
