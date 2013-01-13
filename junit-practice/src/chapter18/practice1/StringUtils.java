@@ -6,6 +6,8 @@ public class StringUtils {
 	}
 	
 	public static String toSnakeCase(String string) {
-		return string;
+		String convertedString = string.replaceAll("([a-z])([A-Z])", "$1_$2");
+		convertedString = convertedString.toLowerCase();
+		return convertedString;
 	}
 }
