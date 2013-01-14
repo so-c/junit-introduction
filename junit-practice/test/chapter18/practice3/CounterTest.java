@@ -10,9 +10,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Enclosed.class)
 public class CounterTest {
-	private static Counter counter;
-
 	public static class InitialState {
+		private Counter counter;
+
 		@Before
 		public void setUp() {
 			counter = new Counter();
@@ -22,10 +22,11 @@ public class CounterTest {
 		public void testIncrement_return_1_when_first_call() {
 			assertThat(counter.increment(), is(1));
 		}
-
 	}
 
 	public static class OneceIncremented {
+		private static Counter counter;
+
 		@Before
 		public void setUp() {
 			counter = new Counter();
@@ -39,6 +40,8 @@ public class CounterTest {
 	}
 
 	public static class FiftyTimesIncremented {
+		private static Counter counter;
+
 		@Before
 		public void setUp() {
 			counter = new Counter();
