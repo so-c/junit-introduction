@@ -2,6 +2,7 @@ package chapter19.practice1;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static matcher.Lists.*;
 
 import java.util.List;
 
@@ -31,5 +32,11 @@ public class FizzBuzzTest {
         assertThat(actual.get(13),is("14"));
         assertThat(actual.get(14),is("FizzBuzz"));
         assertThat(actual.get(15),is("16"));
+    }
+    
+    @Test
+    public void カスタムMatcherを使ったテスト() throws Exception {
+        List<String> actual = FizzBuzz.createFizzBuzzList(6);
+        assertThat(actual,is(list("1", "2", "Fizz", "4", "Buzz", "Fizz")));
     }
 }
