@@ -1,5 +1,6 @@
 package chapter19.practice2;
 
+import static matcher.EmployeeMatcher.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
@@ -24,5 +25,20 @@ public class EmployeeTest {
         assertThat(actual.get(1).getFirstName(), is("Hanako"));
         assertThat(actual.get(1).getLastName(), is("Suzuki"));
         assertThat(actual.get(1).getEmail(), is("hanako@example.com"));
+    }
+
+    @Test
+    public void カスタムMatcherを使ったテスト() throws Exception {
+        // SetUp
+        InputStream input = getClass().getResourceAsStream("employee.txt");
+        Employee expectedIchiro = new Employee("Ichiro", "Tanaka", "ichiro@example.com");
+        Employee expectedHanako = new Employee("Hanako", "Suzuki", "hanako@example.com");
+        // Exercise
+        List<Employee> actual = Employee.load(input);
+        // Verify
+        assertThat(actual, is(not(nullValue())));
+        assertThat(actual.size(), is(2));
+        assertThat(actual.get(0), is(employee(expectedIchiro)));
+        assertThat(actual.get(1), is(employee(expectedHanako)));
     }
 }
