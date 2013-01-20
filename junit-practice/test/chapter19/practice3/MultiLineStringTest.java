@@ -1,8 +1,8 @@
 package chapter19.practice3;
 
+import static matcher.MultiLineStringMatcher.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static matcher.MultiLineStringMatcher.*;
 
 import org.junit.Test;
 

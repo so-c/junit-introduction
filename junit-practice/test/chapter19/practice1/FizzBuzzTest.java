@@ -1,8 +1,8 @@
 package chapter19.practice1;
 
+import static matcher.Lists.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static matcher.Lists.*;
 
 import java.util.List;
 
