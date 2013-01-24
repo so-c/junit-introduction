@@ -12,7 +12,7 @@ public class Lists {
      * @param items expected list.
      * @return matcher for list
      */
-    public static <T> Matcher<List<?>> list(T... items) {
+    public static <T> Matcher<List<?>> list(@SuppressWarnings("unchecked") T... items) {
         return new ListMatcher(items);
     }
     
