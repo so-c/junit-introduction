@@ -1,8 +1,9 @@
 package chapter20.practice5;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,7 @@ public class HelloServletTest {
         HelloServlet sut = new HelloServlet();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getParameter("name")).thenReturn("JUnit");
-        ServletOutputStream output = mock(ServletOutputStream.class);
+        StringServletOutputStream output = new StringServletOutputStream();
         HttpServletResponse response = mock(HttpServletResponse.class);
         when(response.getOutputStream()).thenReturn(output);
         
@@ -23,7 +24,7 @@ public class HelloServletTest {
         sut.doGet(request, response);
         
         // Verify
-        verify(output).println("Hello JUnit");
+        assertThat(output.getOutput(),is("Hello JUnit\r\n"));
         verify(response).setContentType("text/plain; charset=UTF-8");
         verify(response).flushBuffer();
     }
